@@ -18,21 +18,28 @@
 
 ## [0. 개발환경 준비 ( NGINX + PHP-FPM | Docker )](00-nginx-php-fpm.md)
 
-## [1. PHP 기본 문법 및 DB 연결](10-php-basic.md)
+## [1. PHP 기본 문법 및 DB 연결](01-php-basic.md)
 
-## [2. 메인페이지 작성 ( SELECT + JOIN )](20-main-page.md)
+## [2. 메인페이지 작성 ( SELECT + JOIN )](02-main-page.md)
 
-## [3. 회원가입 페이지 ( INSERT )](30-user-regist.md)
+## [3. 회원가입 페이지 ( INSERT )](03-user-regist.md)
 
-## [4. 로그인 페이지 ( SELECT + WHERE )](40-user-login.md)
+## [4. 로그인 페이지 ( SELECT + WHERE )](04-user-login.md)
 
-## [5. 게시글 작성 ( INSERT + FK )](50-post-write.md)
+## [5. 게시글 작성 ( INSERT + FK )](05-post-write.md)
 
-## [6. 게시글 상세 페이지 ( SELECT + WHERE + JOIN )](60-post-detail.md)
+## [6. 게시글 상세 페이지 ( SELECT + WHERE + JOIN )](06-post-detail.md)
 
-## [7. 댓글 작성 ( 2중 FK )](70-comment-write.md)
+## [7. 댓글 작성 ( 2중 FK )](07-comment-write.md)
 
-## [8. 댓글 목록 조회 ( SELECT + WHERE + JOIN | GROUP BY / ORDER BY )](80-comment-list.md)
+## [8. 댓글 목록 조회 ( SELECT + WHERE + JOIN | GROUP BY / ORDER BY )](08-comment-list.md)
 
+## [9. 게시글 삭제 ( DELETE + WHERE )](09-post-delete.md)
 
+## [10. 댓글 삭제 ( DELETE + WHERE )](10-comment-delete.md)
 
+## [11. 리팩토링 소개](11-refactoring.md)
+
+## [12. 페이징 처리 ( LIMIT / OFFSET )](12-paging.md)
+
+## [13. 게시글 검색 ( WHERE + LIKE + 페이징 연동 )](13-search.md)

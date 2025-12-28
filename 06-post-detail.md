@@ -53,6 +53,7 @@
 ```sql
 SELECT
   p.id,
+  p.user_id,
   p.title,
   p.content,
   p.view_count,

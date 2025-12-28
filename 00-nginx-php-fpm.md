@@ -15,14 +15,14 @@
 > Docker는 애플리케이션과 실행 환경을 컨테이너로 묶어, 어디서나 동일하게 실행하게 해주는 도구다.  
 > 컨테이너는 하나의 메인 프로세스를 중심으로 동작한다.
 
-## 0-1. 필수 패키지 설치
+## 0-1. 필수 패키지 설치:
 
 ```bash
 sudo apt update
 sudo apt install -y ca-certificates curl gnupg
 ```
 
-## 0-2. Docker 공식 GPG 키 등록
+## 0-2. Docker 공식 GPG 키 등록:
 ```bash
 sudo install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
@@ -30,7 +30,7 @@ sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 sudo chmod a+r /etc/apt/keyrings/docker.gpg
 ```
 
-## 0-3. Docker 공식 저장소 추가 (Ubuntu 24.04 / noble)
+## 0-3. Docker 공식 저장소 추가: (Ubuntu 24.04 / noble)
 ```bash
 echo \
 "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
@@ -38,29 +38,29 @@ https://download.docker.com/linux/ubuntu noble stable" | \
 sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
 
-## 0-4. docker-ce 설치
+## 0-4. docker-ce 설치:
 ```bash
 sudo apt update
 sudo apt install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin docker-buildx-plugin
 ```
 
-## 0-5. Docker 데몬 확인
+## 0-5. Docker 데몬 확인:
 ```bash
 sudo systemctl status docker
 ```
 
-## 0-6. sudo 없이 docker 쓰기 (필수)
+## 0-6. sudo 없이 docker 쓰기: (필수)
 ```bash
 sudo usermod -aG docker $USER
 ```
 
-## 0-7. 설치 확인
+## 0-7. 설치 확인:
 ```bash
 docker --version
 docker compose version
 ```
 
-## 0-8. 동작테스트
+## 0-8. 동작테스트:
 ```bash
 docker run hello-world
 ```
@@ -149,7 +149,7 @@ touch \
   "$BASE/var/www/test.localhost/public/phpinfo.php"
 ```
 
-## 2-3. VSCode 로 작업폴더 열기
+## 2-3. VSCode 로 작업폴더 열기:
 ```
 code ~/projects/web-docker
 ```
@@ -185,7 +185,7 @@ FROM php:8.3-fpm-alpine
 RUN docker-php-ext-install pdo_mysql mysqli
 ```
 
-Docker 로 이미지 빌드
+Docker 로 이미지 빌드:
 ```
 docker build -t custom-php-fpm:8.3-alpine .
 ```
@@ -277,7 +277,7 @@ docker logs -f web-php
 # 3. Docker 컨테이너에서 호스트 MySQL로 원격 접속
 
 ## 3-1. 원격 접속 가능한 계정 추가
-### mysql 접속
+### mysql 접속:
 ```bash
 sudo mysql
 ```
@@ -287,7 +287,7 @@ sudo mysql
 USE mysql; CREATE USER 'test'@'%' IDENTIFIED BY 'test123'; GRANT ALL PRIVILEGES ON testdb.* TO 'test'@'%'; FLUSH PRIVILEGES;
 ```
 
-## 3-2. mysqld.cnf 수정:
+## 3-2. mysqld.cnf 수정
 > mysqld.cnf 파일에서 MySQL의 bind-address를 로컬 전용(127.0.0.1)에서 모든 네트워크 허용(0.0.0.0)으로 변경한다.
 
 
@@ -298,7 +298,7 @@ USE mysql; CREATE USER 'test'@'%' IDENTIFIED BY 'test123'; GRANT ALL PRIVILEGES 
 sudo sed -i 's/^bind-address\s*=.*/bind-address = 0.0.0.0/' /etc/mysql/mysql.conf.d/mysqld.cnf
 ```
 
-## 3-3. MySQL 서버 재시작
+## 3-3. MySQL 서버 재시작:
 ```bash
 sudo systemctl restart mysql
 ```

@@ -45,6 +45,7 @@
 ```sql
 SELECT
   c.id,
+  c.user_id,
   c.comment,
   c.created_at,
   u.nickname
@@ -81,6 +82,7 @@ WHERE post_id = :post_id;
 $commentSql = "
   SELECT
     c.id,
+    c.user_id,
     c.comment,
     c.created_at,
     u.nickname

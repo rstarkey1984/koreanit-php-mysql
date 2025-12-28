@@ -123,7 +123,6 @@ VALUES (:user_id, :title, :content);
 ## 3-3. public/post_create_action.php
 ```php
 <?php
-<?php
 require_once dirname(__DIR__) . "/lib/db.php";
 
 session_start();
@@ -183,10 +182,11 @@ $stmt->execute();
 $postId = $pdo->lastInsertId();
 
 // --------------------------------------------------
-// 게시글 목록 페이지로 이동
+// 메인페이지(게시글 목록)로 이동
 // --------------------------------------------------
 header("Location: /");
 exit;
+?>
 ```
 ---
 

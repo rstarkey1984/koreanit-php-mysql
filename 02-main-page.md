@@ -247,6 +247,6 @@ ORDER BY t.id DESC;
 </tr>
 ```
 ```
-<!-- 조회수 -->
-<td><?= htmlspecialchars($post["view_count"]) ?></td>
+<!-- 댓글 수 -->
+<td><?= htmlspecialchars($post["comment_cnt"]) ?></td>
 ```
