@@ -51,13 +51,14 @@ $offset = ($page - 1) * $pageSize;
 # 3. 페이지 번호 받기 및 OFFSET 계산 (GET 파라미터)
 
 ```php
-// 페이지당 게시글 수 (LIMIT 기준)
-$pageSize = 20;
-
 // 현재 페이지 번호
 // - page 파라미터가 없으면 1
 // - 숫자가 아니거나 1보다 작으면 1로 보정
 $page = $_GET["page"] ?? 1;
+
+// 페이지당 게시글 수 (LIMIT 기준)
+$pageSize = 20;
+
 if (!ctype_digit((string) $page) || $page < 1) {
   $page = 1;
 }
