@@ -36,10 +36,15 @@
 
 ## [9. 게시글 삭제 ( DELETE + WHERE )](09-post-delete.md)
 
-## [10. 댓글 삭제 ( DELETE + WHERE )](10-comment-delete.md)
+## [10. 게시글 수정 ( UPDATE + WHERE )](10-post-edit.md)
 
-## [11. 리팩토링 소개](11-refactoring.md)
+## [11. 댓글 삭제 ( DELETE + WHERE )](11-comment-delete.md)
 
-## [12. 페이징 처리 ( LIMIT / OFFSET )](12-paging.md)
+## [12. 리팩토링 소개](12-refactoring.md)
 
-## [13. 게시글 검색 ( WHERE + LIKE + 페이징 연동 )](13-search.md)
+## [13. 페이징 처리 ( LIMIT / OFFSET )](13-paging.md)
+
+## [14. 게시글 검색 ( WHERE + LIKE + 페이징 연동 )](14-search.md)
+
+
+## [15. 요약정리](15-ending.md)

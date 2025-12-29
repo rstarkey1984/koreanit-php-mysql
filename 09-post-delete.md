@@ -49,7 +49,7 @@ if (isset($_SESSION["user"])) {
 }
 ```
 
-`<p><a href="/">목록으로</a></p>` 부분 HTML 코드 수정
+삭제버튼 HTML 추가
 ```php
 <p>
   <?php if ($isOwner): ?>

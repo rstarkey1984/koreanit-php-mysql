@@ -31,7 +31,9 @@
 
 ---
 
-# 2. 검색 파라미터 수신 (PHP)
+# 2. 검색 UI 추가 
+
+## 2-1. 검색 파라미터 수신 (PHP)
 ```php
 $type = $_GET["type"] ?? "";
 $keyword = trim($_GET["keyword"] ?? "");
@@ -39,12 +41,7 @@ $keyword = trim($_GET["keyword"] ?? "");
 - 검색하지 않았을 경우: 빈 문자열
 - trim()으로 공백만 입력되는 경우 제거
 
----
-
-# 3. 검색 UI 추가 
-
-
-## 3-1. 검색어 입력폼 (GET 방식)
+## 2-2. 검색어 입력폼 (`<table>` 태그 아래 추천)
 ```php
 <form method="get" class="d-flex mb-3">
   <select name="type" class="form-select w-auto me-2">
@@ -72,7 +69,7 @@ GET 방식을 사용하는 이유
 
 - 페이징과 자연스럽게 결합된다
 
-## 3-2. 검색 상태 문구 만들기 (PHP)
+## 2-3. 검색 상태 문구 만들기 (PHP)
 ```php
 $searchInfo = "전체 게시글 목록";
 
@@ -85,7 +82,7 @@ if ($keyword !== "" && ($type === "title" || $type === "writer")) {
 }
 ```
 
-## 3-3. 화면에 출력 (`<table>` 태그 위 추천)
+## 2-4. 화면에 출력 (`<table>` 태그 위 추천)
 ```php
 <p class="text-muted mb-2">
   <?= htmlspecialchars($searchInfo) ?>
@@ -95,13 +92,13 @@ if ($keyword !== "" && ($type === "title" || $type === "writer")) {
 
 ---
 
-# 4. WHERE 절 동적 구성
+# 3. SQL 쿼리 WHERE 절 동적 구성
 
-## 4-1. 검색 조건이 없는 경우
+## 3-1. 검색 조건이 없는 경우
 
 - 전체 게시글 목록 조회
 
-## 4-2. 검색 조건이 있는 경우
+## 3-2. 검색 조건이 있는 경우
 
 - 제목 또는 작성자 기준 검색
 
@@ -131,7 +128,7 @@ if ($keyword !== "") {
 
 ---
 
-# 5. 검색 + 페이징 목록 조회 SQL
+# 4. 검색 + 페이징 목록 조회 SQL
 
 ```php
 $sql = "
@@ -171,7 +168,7 @@ ORDER BY t.id DESC
 ---
 
 
-# 6. 바인딩 처리
+# 5. 바인딩 처리
 
 ```php
 $stmt = $pdo->prepare($sql);
@@ -190,7 +187,7 @@ $posts = $stmt->fetchAll();
 ---
 
 
-# 7. 검색 조건을 반영한 전체 게시글 수 계산 ( COUNT(*) )
+# 6. 검색 조건을 반영한 전체 게시글 수 계산 ( COUNT(*) )
 
 검색 결과도 “목록”이기 때문에 전체 개수(totalCount)가 필요하다.
 이 값으로 totalPages를 계산해서 페이지 네비게이션을 만든다.
@@ -218,7 +215,7 @@ $totalCount = (int) $countStmt->fetchColumn();
 
 ---
 
-# 8. 페이징 링크에 검색 조건 유지
+# 7. 페이징 링크에 검색 조건 유지
 검색한 상태에서 페이지 이동을 하면 검색 조건이 URL에서 사라질 수 있다.
 따라서 페이지 링크를 만들 때 검색 파라미터(type, keyword)를 같이 붙여야 한다.
 
@@ -238,7 +235,7 @@ $queryString = $q ? "&".http_build_query($q) : "";
 ---
 
 
-# 9. 페이지 번호 출력 (검색 조건 유지 버전)
+# 8. 페이지 번호 출력 (검색 조건 유지 버전)
 
 ```php
 <nav aria-label="Page navigation">
