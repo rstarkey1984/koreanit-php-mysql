@@ -133,7 +133,7 @@ ORDER BY t.id DESC
 
 
 ## 4-3. 바인딩
-```
+```php
 // LIMIT / OFFSET 은 반드시 정수 바인딩
 $stmt->bindValue(":limit", $limit, PDO::PARAM_INT);
 $stmt->bindValue(":offset", $offset, PDO::PARAM_INT);
