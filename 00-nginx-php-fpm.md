@@ -52,6 +52,8 @@ sudo systemctl status docker
 ## 0-6. sudo 없이 docker 쓰기: (필수)
 ```bash
 sudo usermod -aG docker $USER
+
+newgrp docker
 ```
 
 ## 0-7. 설치 확인:
